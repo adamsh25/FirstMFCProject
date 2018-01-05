@@ -1,5 +1,6 @@
 #pragma once
 #include "Dairy.h"
+#include <afx.h>
 class Milk : public Dairy
 {
 public:

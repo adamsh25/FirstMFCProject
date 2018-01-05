@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Milk.h"
 
+
 CString Milk::GetCategory() const
 {
 	return CString(L"Milk");
@@ -8,5 +9,7 @@ CString Milk::GetCategory() const
 
 CString Milk::GetName() const
 {
-	return name + L" ";
+	CString formmated = L"";
+	formmated.Format(L"%s %d\%", name, fatPercentage);
+	return formmated;
 }
