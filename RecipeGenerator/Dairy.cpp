@@ -1,6 +1,10 @@
 #include "stdafx.h"
 #include "Dairy.h"
 
+Dairy::Dairy()
+{
+}
+
 CString Dairy::GetCategory() const
 {
 	return CString(L"Dairy");

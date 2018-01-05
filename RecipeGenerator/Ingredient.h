@@ -10,9 +10,9 @@ public:
 	virtual CString GetCategory() const = 0;
 	virtual CString GetImagePath() const = 0;
 	virtual int GetQuantityInGrams() const = 0;
-	virtual void SetQuantityInGrams(const int quantityInGrams) = 0;
+	virtual void SetQuantityInGrams(int quantityInGrams) = 0;
 	virtual double GetTotalCalories() const;
-	virtual double GetCaloriesFor100Gram() const = 0 ;
+	virtual double GetCaloriesFor100Gram() const = 0;
 	virtual int GetHealthScore() const;
 
 protected:
