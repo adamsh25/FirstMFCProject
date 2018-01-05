@@ -6,16 +6,17 @@ class Ingredient : public CObject
 {
 public:
 	Ingredient();
-	virtual wstring GetName() = 0;
-	virtual wstring GetImagePath() = 0;
-	virtual int GetQuantityInGrams() = 0;
+	virtual CString GetName() const = 0;
+	virtual CString GetCategory() const = 0;
+	virtual CString GetImagePath() const = 0;
+	virtual int GetQuantityInGrams() const = 0;
 	virtual void SetQuantityInGrams(const int quantityInGrams) = 0;
-	virtual int GetTotalCalories() = 0;
-	virtual void SetCaloriesFor100Gram(const double calories) = 0;
+	virtual double GetTotalCalories() const;
+	virtual double GetCaloriesFor100Gram() const = 0 ;
+	virtual int GetHealthScore() const;
 
 protected:
-	const wstring name;
-	const wstring imagePath;
+	const CString name;
+	const CString imagePath;
 	int quantityInGrams;
-	int calories;
 };

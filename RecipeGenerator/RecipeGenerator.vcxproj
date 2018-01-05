@@ -183,14 +183,28 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Carb.h" />
+    <ClInclude Include="Dairy.h" />
+    <ClInclude Include="Fish.h" />
+    <ClInclude Include="Fruit.h" />
     <ClInclude Include="Ingredient.h" />
+    <ClInclude Include="Meat.h" />
+    <ClInclude Include="Milk.h" />
     <ClInclude Include="RecipeGenerator.h" />
     <ClInclude Include="RecipeGeneratorDlg.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="Vegetable.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Carb.cpp" />
+    <ClCompile Include="Dairy.cpp" />
+    <ClCompile Include="Fish.cpp" />
+    <ClCompile Include="Fruit.cpp" />
+    <ClCompile Include="Ingredient.cpp" />
+    <ClCompile Include="Meat.cpp" />
+    <ClCompile Include="Milk.cpp" />
     <ClCompile Include="RecipeGenerator.cpp" />
     <ClCompile Include="RecipeGeneratorDlg.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -199,6 +213,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Vegetable.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="RecipeGenerator.rc" />
