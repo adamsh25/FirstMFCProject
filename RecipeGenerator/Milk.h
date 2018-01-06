@@ -5,7 +5,10 @@ class Milk : public Dairy
 {
 public:
 	Milk();
+	Milk(Milk const& other);
 	Milk(int fatPercentage);
+	virtual ~Milk() {};
+	Milk* clone() const;
 	CString GetCategory() const;
 	CString GetName() const;
 	CString GetImagePath() const;
@@ -15,6 +18,7 @@ public:
 	int GetHealthScore() const;
 	int GetFatPercentage() const;
 	void SetFatPercentage(int _fatPercentage);
+
 protected:
-	int fatPercentage = 3;
+	CString kind = L"Cow";
 };

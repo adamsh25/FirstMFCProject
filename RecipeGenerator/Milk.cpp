@@ -4,13 +4,24 @@
 
 Milk::Milk()
 {
+
+}
+
+Milk::Milk(Milk const& other) : Dairy(other)
+{
+	kind = other.kind;
 }
 
 
-
-Milk::Milk(int fatPercentage):fatPercentage(fatPercentage)
+Milk::Milk(int _fatPercentage)
 {
 	name = "Milk";
+	fatPercentage = _fatPercentage;
+}
+
+Milk* Milk::clone() const
+{
+	return new Milk(*this);
 }
 
 CString Milk::GetCategory() const
@@ -21,7 +32,7 @@ CString Milk::GetCategory() const
 CString Milk::GetName() const
 {
 	CString formmated = L"";
-	formmated.Format(L"%s %dP", name, fatPercentage);
+	formmated.Format(L"%s %s", kind, Dairy::GetName());
 	return formmated;
 }
 
@@ -59,3 +70,4 @@ void Milk::SetFatPercentage(int _fatPercentage)
 {
 	fatPercentage = _fatPercentage;
 }
+

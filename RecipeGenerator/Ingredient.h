@@ -6,7 +6,9 @@ class Ingredient : public CObject
 {
 public:
 	Ingredient();
-	virtual CString GetName() const = 0;
+	Ingredient(Ingredient const& other);
+	virtual Ingredient* clone() const = 0;
+	virtual CString GetName() const;
 	virtual CString GetCategory() const = 0;
 	virtual CString GetImagePath() const = 0;
 	virtual int GetQuantityInGrams() const = 0;
@@ -14,9 +16,10 @@ public:
 	virtual double GetTotalCalories() const;
 	virtual double GetCaloriesFor100Gram() const = 0;
 	virtual int GetHealthScore() const;
+	virtual ~Ingredient() {}
 
 protected:
 	CString name;
 	CString imagePath;
-	int quantityInGrams;
+	int quantityInGrams = 0;
 };

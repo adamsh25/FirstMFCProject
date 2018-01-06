@@ -5,9 +5,21 @@ Dairy::Dairy()
 {
 }
 
+Dairy::Dairy(Dairy const & other) : Ingredient(other)
+{
+	fatPercentage = other.fatPercentage;
+}
+
 CString Dairy::GetCategory() const
 {
 	return CString(L"Dairy");
+}
+
+CString Dairy::GetName() const
+{
+	CString formmated = L"";
+	formmated.Format(L"%s %d%%", Ingredient::GetName(), fatPercentage);
+	return formmated;
 }
 
 CString Dairy::GetImagePath() const
