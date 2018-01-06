@@ -6,20 +6,22 @@ Milk::Milk()
 {
 }
 
+
+
 Milk::Milk(int fatPercentage):fatPercentage(fatPercentage)
 {
-
+	name = "Milk";
 }
 
 CString Milk::GetCategory() const
 {
-	return CString(L"Milk");
+	return Dairy::GetCategory();
 }
 
 CString Milk::GetName() const
 {
 	CString formmated = L"";
-	formmated.Format(L"%s %d%", name, fatPercentage);
+	formmated.Format(L"%s %dP", name, fatPercentage);
 	return formmated;
 }
 

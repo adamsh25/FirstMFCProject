@@ -16,7 +16,7 @@ public:
 	virtual int GetHealthScore() const;
 
 protected:
-	const CString name;
-	const CString imagePath;
+	CString name;
+	CString imagePath;
 	int quantityInGrams;
 };
