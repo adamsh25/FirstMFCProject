@@ -43,3 +43,10 @@ int Ingredient::GetHealthScore() const
 {
 	return 10;
 }
+
+CString Ingredient::GetInfo()
+{
+	CString formmated = L"";
+	formmated.Format(L"Ingredient");
+	return formmated;
+}

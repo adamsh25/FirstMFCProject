@@ -56,3 +56,10 @@ void Dairy::Serialize(CArchive & archive)
 		archive >> fatPercentage;
 	}
 }
+
+CString Dairy::GetInfo()
+{
+	CString formmated = L"";
+	formmated.Format(L"Dairy_%d_%s", fatPercentage, Ingredient::GetInfo());
+	return formmated;
+}

@@ -20,6 +20,7 @@ public:
 	int GetFatPercentage() const;
 	void SetFatPercentage(int _fatPercentage);
 	void Serialize(CArchive& archive);
+	virtual CString GetInfo();
 
 protected:
 	CString kind = L"Cow";

@@ -74,3 +74,10 @@ void Milk::Serialize(CArchive & archive)
 	}
 }
 
+CString Milk::GetInfo()
+{
+	CString formmated = L"";
+	formmated.Format(L"Milk_%s_%s", kind, Dairy::GetInfo());
+	return formmated;
+}
+

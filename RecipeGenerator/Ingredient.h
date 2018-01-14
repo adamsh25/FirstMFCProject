@@ -17,6 +17,7 @@ public:
 	virtual double GetTotalCalories() const;
 	virtual double GetCaloriesFor100Gram() const { return 0; };
 	virtual int GetHealthScore() const;
+	virtual CString GetInfo();
 	void Serialize(CArchive& archive);
 	virtual ~Ingredient() {}
 

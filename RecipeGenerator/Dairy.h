@@ -17,6 +17,7 @@ public:
 	void SetFatPercentage(int _fatPercentage);
 	virtual Dairy* clone() const { return new Dairy(*this); };
 	void Serialize(CArchive& archive);
+	virtual CString GetInfo();
 	virtual ~Dairy() {};
 protected:
 	int fatPercentage = 3;
