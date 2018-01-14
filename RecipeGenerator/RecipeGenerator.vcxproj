@@ -187,6 +187,7 @@
     <ClInclude Include="Carb.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="Dairy.h" />
+    <ClInclude Include="DeleteCommand.h" />
     <ClInclude Include="Fish.h" />
     <ClInclude Include="Fruit.h" />
     <ClInclude Include="Ingredient.h" />
