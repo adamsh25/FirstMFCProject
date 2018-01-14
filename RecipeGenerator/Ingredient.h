@@ -5,17 +5,19 @@ using namespace std;
 class Ingredient : public CObject
 {
 public:
+	DECLARE_SERIAL(Ingredient)
 	Ingredient();
 	Ingredient(Ingredient const& other);
-	virtual Ingredient* clone() const = 0;
+	virtual Ingredient* clone() const { return new Ingredient(*this); };
 	virtual CString GetName() const;
-	virtual CString GetCategory() const = 0;
-	virtual CString GetImagePath() const = 0;
-	virtual int GetQuantityInGrams() const = 0;
-	virtual void SetQuantityInGrams(int quantityInGrams) = 0;
+	virtual CString GetCategory() const { return CString(L""); };
+	virtual CString GetImagePath() const { return CString(L""); };
+	virtual int GetQuantityInGrams() const { return 0; };
+	virtual void SetQuantityInGrams(int quantityInGrams) {};
 	virtual double GetTotalCalories() const;
-	virtual double GetCaloriesFor100Gram() const = 0;
+	virtual double GetCaloriesFor100Gram() const { return 0; };
 	virtual int GetHealthScore() const;
+	void Serialize(CArchive& archive);
 	virtual ~Ingredient() {}
 
 protected:

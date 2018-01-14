@@ -4,6 +4,7 @@
 class Milk : public Dairy
 {
 public:
+	DECLARE_SERIAL(Milk)
 	Milk();
 	Milk(Milk const& other);
 	Milk(int fatPercentage);
@@ -18,6 +19,7 @@ public:
 	int GetHealthScore() const;
 	int GetFatPercentage() const;
 	void SetFatPercentage(int _fatPercentage);
+	void Serialize(CArchive& archive);
 
 protected:
 	CString kind = L"Cow";

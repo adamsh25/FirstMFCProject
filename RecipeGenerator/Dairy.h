@@ -3,18 +3,20 @@
 class Dairy : public Ingredient
 {
 public:
+	DECLARE_SERIAL(Dairy)
 	Dairy();
 	Dairy(Dairy const& other);
 	CString GetCategory() const;
 	virtual CString GetName() const;
 	virtual CString GetImagePath() const;
-	virtual int GetQuantityInGrams() const = 0;
-	virtual void SetQuantityInGrams(const int quantityInGrams) = 0;
-	virtual double GetCaloriesFor100Gram() const = 0;
+	virtual int GetQuantityInGrams() const { return 0; };
+	virtual void SetQuantityInGrams(const int quantityInGrams) {};
+	virtual double GetCaloriesFor100Gram() const { return 0; };
 	virtual int GetHealthScore() const;
-	virtual int GetFatPercentage() const = 0;
-	virtual void SetFatPercentage(int _fatPercentage) = 0;
-	virtual Dairy* clone() const = 0;
+	int GetFatPercentage() const;
+	void SetFatPercentage(int _fatPercentage);
+	virtual Dairy* clone() const { return new Dairy(*this); };
+	void Serialize(CArchive& archive);
 	virtual ~Dairy() {};
 protected:
 	int fatPercentage = 3;

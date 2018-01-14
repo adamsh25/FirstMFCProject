@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "Ingredient.h"
 
+IMPLEMENT_SERIAL(Ingredient, CObject, 1)
+
 Ingredient::Ingredient()
 {
 }
@@ -10,6 +12,17 @@ Ingredient::Ingredient(Ingredient const & other)
 	name = other.name;
 	imagePath = other.imagePath;
 	quantityInGrams = other.quantityInGrams;
+}
+
+void Ingredient::Serialize(CArchive& archive) {
+	if (archive.IsStoring())
+	{
+		archive << name << imagePath << quantityInGrams;
+	}
+	else
+	{
+		archive >> name >> imagePath >> quantityInGrams;
+	}
 }
 
 CString Ingredient::GetName() const

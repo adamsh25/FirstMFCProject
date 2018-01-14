@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Milk.h"
 
+IMPLEMENT_SERIAL(Milk, Dairy, 1)
 
 Milk::Milk()
 {
@@ -11,7 +12,6 @@ Milk::Milk(Milk const& other) : Dairy(other)
 {
 	kind = other.kind;
 }
-
 
 Milk::Milk(int _fatPercentage)
 {
@@ -61,13 +61,16 @@ int Milk::GetHealthScore() const
 	return Dairy::GetHealthScore() + 15;
 }
 
-int Milk::GetFatPercentage() const
+void Milk::Serialize(CArchive & archive)
 {
-	return fatPercentage;
-}
-
-void Milk::SetFatPercentage(int _fatPercentage)
-{
-	fatPercentage = _fatPercentage;
+	Dairy::Serialize(archive);
+	if (archive.IsStoring())
+	{
+		archive << kind;
+	}
+	else
+	{
+		archive >> kind;
+	}
 }
 

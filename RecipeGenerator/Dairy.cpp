@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "Dairy.h"
 
+IMPLEMENT_SERIAL(Dairy, Ingredient, 1)
+
 Dairy::Dairy()
 {
 }
@@ -30,4 +32,27 @@ CString Dairy::GetImagePath() const
 int Dairy::GetHealthScore() const
 {
 	return Ingredient::GetHealthScore() - 2;
+}
+
+int Dairy::GetFatPercentage() const
+{
+	return fatPercentage;
+}
+
+void Dairy::SetFatPercentage(int _fatPercentage)
+{
+	fatPercentage = _fatPercentage;
+}
+
+void Dairy::Serialize(CArchive & archive)
+{
+	Ingredient::Serialize(archive);
+	if (archive.IsStoring())
+	{
+		archive << fatPercentage;
+	}
+	else
+	{
+		archive >> fatPercentage;
+	}
 }
