@@ -27,7 +27,7 @@ public:
 
 	void perform() 
 	{ 
-		int exists = getExistingIndex();
+		exists = getExistingIndex();
 		if (exists == LB_ERR)
 		{
 			ingredients.push_back(ingredient);
@@ -38,6 +38,7 @@ public:
 		else 
 		{
 			Ingredient* existingIngredient = ingredients.at(exists);
+			oldIngredient = existingIngredient->clone();
 			existingIngredient->SetQuantityInGrams(existingIngredient->GetQuantityInGrams() + ingredient->GetQuantityInGrams());
 			ingredient = existingIngredient;
 			ingredientsListBox->DeleteString(exists);
@@ -54,12 +55,24 @@ public:
 		for (it = ingredients.begin(); it != ingredients.end(); ++it, ++i)
 			if (*it == ingredient)
 				break;
-		if (it != ingredients.end())
+
+
+		if (exists != LB_ERR)
+		{
+			ingredient = oldIngredient;
+			oldIngredient = ingredient;
+			ingredientsListBox->DeleteString(exists);
+			ingredientsListBox->InsertString(exists, ingredient->GetName());
+			ingredientsListBox->SetItemDataPtr(exists, ingredient);
+		}
+		else if (it != ingredients.end())
 		{
 			ingredients.erase(it);
 			ingredientsListBox->DeleteString(i);
-			ingredientsListBox->Invalidate();
 		}
+
+		ingredientsListBox->Invalidate();
+
 	}
 
 
@@ -71,4 +84,6 @@ private:
 	CListBox * ingredientsListBox;
 	vector<Ingredient*> &ingredients;
 	Ingredient *ingredient;
+	Ingredient *oldIngredient;
+	int exists;
 };
