@@ -17,7 +17,7 @@ CString Ingredient::GetName() const
 	CString formmated = L"";
 	formmated.Format(L"%s", name);
 	if(quantityInGrams > 0)
-		formmated.Format(L"[%d] %s", quantityInGrams, formmated);
+		formmated.Format(L"%s [%d]", formmated, quantityInGrams);
 	return formmated;
 }
 

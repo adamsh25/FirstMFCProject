@@ -18,7 +18,7 @@ CString Dairy::GetCategory() const
 CString Dairy::GetName() const
 {
 	CString formmated = L"";
-	formmated.Format(L"%s %d%%", Ingredient::GetName(), fatPercentage);
+	formmated.Format(L"%d%% %s", fatPercentage, Ingredient::GetName());
 	return formmated;
 }
 
