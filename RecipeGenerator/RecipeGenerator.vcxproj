@@ -183,7 +183,9 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AddCommand.h" />
     <ClInclude Include="Carb.h" />
+    <ClInclude Include="Command.h" />
     <ClInclude Include="Dairy.h" />
     <ClInclude Include="Fish.h" />
     <ClInclude Include="Fruit.h" />
