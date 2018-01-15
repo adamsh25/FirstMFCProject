@@ -20,11 +20,14 @@ public:
 	void SetRecipeInstructionText(CString _recipeText);
 	bool MatchRecipe(vector<Ingredient*> _ingredients);
 	CString GetRecipeText();
+	void AddIngredient(Ingredient* ingredient, int quantityInGrams);
 	virtual ~Recipe();
 
 protected:
-	CString name;
-	CString imagePath;
-	CString recipeText;
+	CString name = L"";
+	CString imagePath = L"";
+	CString recipeText = L"";
+	int healthScore = 0;
+	int calories = 0;
 	vector<Ingredient*> ingredients;
 };
