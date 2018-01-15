@@ -63,6 +63,9 @@
     <ClInclude Include="DeleteCommand.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="UpdateCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="RecipeGenerator.cpp">
