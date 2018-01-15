@@ -1,9 +1,23 @@
 #include "stdafx.h"
 #include "Carb.h"
 
-int Carb::GetHealthScore()
+
+
+
+IMPLEMENT_SERIAL(Carb, Ingredient, 1)
+
+Carb::Carb()
 {
-	return Ingredient::GetHealthScore() - 5;
+}
+
+Carb::Carb(CString _name)
+{
+	name = _name;
+}
+
+Carb::Carb(Carb const & other) : Ingredient(other)
+{
+	isProcessed = other.isProcessed;
 }
 
 CString Carb::GetCategory() const
@@ -15,4 +29,38 @@ CString Carb::GetCategory() const
 CString Carb::GetImagePath() const
 {
 	return CString(L"CarbImage.png");
+}
+
+CString Carb::GetName() const
+{
+	CString formmated = L"";
+	CString proccessString = isProcessed ? L"Processesd" : L"Healthy Carb";
+	formmated.Format(L"(%s) %s", proccessString, Ingredient::GetName());
+	return formmated;
+}
+
+int Carb::GetHealthScore() const
+{
+	return Ingredient::GetHealthScore() - 30;
+}
+
+
+void Carb::Serialize(CArchive & archive)
+{
+	Ingredient::Serialize(archive);
+	if (archive.IsStoring())
+	{
+		archive << isProcessed;
+	}
+	else
+	{
+		archive >> isProcessed;
+	}
+}
+
+CString Carb::GetInfo()
+{
+	CString formmated = L"";
+	formmated.Format(L"%s_%d_%s", GetCategory(), isProcessed, Ingredient::GetInfo());
+	return formmated;
 }

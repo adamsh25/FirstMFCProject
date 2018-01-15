@@ -5,6 +5,11 @@ Recipe::Recipe()
 {
 }
 
+Recipe::Recipe(CString _name)
+{
+	name = _name;
+}
+
 Recipe::Recipe(Recipe const & other)
 {
 	name = other.name;
@@ -83,7 +88,7 @@ CString Recipe::GetRecipeText()
 	for (it = ingredients.begin(); it != ingredients.end(); ++it)
 	{
 		Ingredient* current = *it;
-		formmated.Format(L"\n%s Grams of %s\n", current->GetQuantityInGrams(), current->GetName());
+		formmated.Format(L"\n%d Grams of %s\n", current->GetQuantityInGrams(), current->GetName());
 	}
 
 	formmated.Format(L"\n\n%s\n\n", this->recipeText);

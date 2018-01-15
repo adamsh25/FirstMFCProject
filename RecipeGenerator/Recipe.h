@@ -9,6 +9,7 @@ class Recipe : public CObject
 {
 public:
 	Recipe();
+	Recipe::Recipe(CString _name);
 	Recipe(Recipe const& other);
 	virtual Recipe* clone() const;
 	CString GetName() const;
