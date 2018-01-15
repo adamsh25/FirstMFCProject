@@ -38,12 +38,10 @@ public:
 		else 
 		{
 			Ingredient* existingIngredient = ingredients.at(exists);
-			oldIngredient = existingIngredient->clone();
 			existingIngredient->SetQuantityInGrams(existingIngredient->GetQuantityInGrams() + ingredient->GetQuantityInGrams());
-			ingredient = existingIngredient;
 			ingredientsListBox->DeleteString(exists);
-			ingredientsListBox->InsertString(exists, ingredient->GetName());
-			ingredientsListBox->SetItemDataPtr(exists, ingredient);
+			ingredientsListBox->InsertString(exists, existingIngredient->GetName());
+			ingredientsListBox->SetItemDataPtr(exists, existingIngredient);
 		}
 		ingredientsListBox->Invalidate();
 	}
@@ -59,11 +57,11 @@ public:
 
 		if (exists != LB_ERR)
 		{
-			ingredient = oldIngredient;
-			oldIngredient = ingredient;
+			Ingredient* existingIngredient = ingredients.at(exists);
+			existingIngredient->SetQuantityInGrams(existingIngredient->GetQuantityInGrams() - ingredient->GetQuantityInGrams());
 			ingredientsListBox->DeleteString(exists);
-			ingredientsListBox->InsertString(exists, ingredient->GetName());
-			ingredientsListBox->SetItemDataPtr(exists, ingredient);
+			ingredientsListBox->InsertString(exists, existingIngredient->GetName());
+			ingredientsListBox->SetItemDataPtr(exists, existingIngredient);
 		}
 		else if (it != ingredients.end())
 		{
@@ -83,7 +81,6 @@ public:
 private:
 	CListBox * ingredientsListBox;
 	vector<Ingredient*> &ingredients;
-	Ingredient *ingredient;
-	Ingredient *oldIngredient;
+	Ingredient *ingredient = NULL;
 	int exists;
 };
