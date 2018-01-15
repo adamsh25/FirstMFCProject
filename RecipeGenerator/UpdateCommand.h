@@ -31,14 +31,11 @@ public:
 
 
 	void rollback() {
-
 		ingredient->SetQuantityInGrams(oldQuantity);
 		ingredientsListBox->DeleteString(location);
 		ingredientsListBox->InsertString(location, ingredient->GetName());
 		ingredientsListBox->SetItemDataPtr(location, ingredient);
-
 		ingredientsListBox->Invalidate();
-
 	}
 
 

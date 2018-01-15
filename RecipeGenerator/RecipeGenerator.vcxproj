@@ -193,6 +193,7 @@
     <ClInclude Include="Ingredient.h" />
     <ClInclude Include="Meat.h" />
     <ClInclude Include="Milk.h" />
+    <ClInclude Include="Recipe.h" />
     <ClInclude Include="RecipeGenerator.h" />
     <ClInclude Include="RecipeGeneratorDlg.h" />
     <ClInclude Include="resource.h" />
@@ -209,6 +210,7 @@
     <ClCompile Include="Ingredient.cpp" />
     <ClCompile Include="Meat.cpp" />
     <ClCompile Include="Milk.cpp" />
+    <ClCompile Include="Recipe.cpp" />
     <ClCompile Include="RecipeGenerator.cpp" />
     <ClCompile Include="RecipeGeneratorDlg.cpp" />
     <ClCompile Include="stdafx.cpp">
