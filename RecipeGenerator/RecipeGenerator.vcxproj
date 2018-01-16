@@ -185,6 +185,7 @@
   <ItemGroup>
     <ClInclude Include="AddCommand.h" />
     <ClInclude Include="Carb.h" />
+    <ClInclude Include="Cereal.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="Dairy.h" />
     <ClInclude Include="DeleteCommand.h" />
@@ -204,6 +205,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Carb.cpp" />
+    <ClCompile Include="Cereal.cpp" />
     <ClCompile Include="Dairy.cpp" />
     <ClCompile Include="Fish.cpp" />
     <ClCompile Include="Fruit.cpp" />

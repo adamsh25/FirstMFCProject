@@ -64,20 +64,25 @@ void Recipe::SetRecipeInstructionText(CString _recipeText)
 	recipeText = _recipeText;
 }
 
-bool Recipe::MatchRecipe(vector<Ingredient*> _ingredients)
+bool Recipe::MatchRecipe(const vector<Ingredient*>& _ingredients) const
 {
-	vector<Ingredient*>::iterator it;
+	vector<Ingredient*>::const_iterator it;
+	if (ingredients.size() > _ingredients.size())
+		return false;
+	int matchCounter = 0;
 	for (it = ingredients.begin(); it != ingredients.end(); ++it)
 	{
-		vector<Ingredient*>::iterator it2;
-		for (it2 = _ingredients.begin(); it != _ingredients.end(); ++it2)
+		vector<Ingredient*>::const_iterator it2;
+		for (it2 = _ingredients.begin(); it2 != _ingredients.end(); ++it2)
 		{
 			if ((*it)->GetInfo().Compare((*it2)->GetInfo()) == 0 && (*it2)->GetQuantityInGrams() >= (*it)->GetQuantityInGrams())
+			{
+				matchCounter++;
 				break;
-			return false;
+			}
 		}
 	}
-	return true;
+	return matchCounter == ingredients.size();
 }
 
 CString Recipe::GetRecipeText()

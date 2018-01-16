@@ -19,7 +19,7 @@ public:
 	double GetTotalCalories() const;
 	int GetHealthScore() const;
 	void SetRecipeInstructionText(CString _recipeText);
-	bool MatchRecipe(vector<Ingredient*> _ingredients);
+	bool MatchRecipe(const vector<Ingredient*>& _ingredients) const;
 	CString GetRecipeText();
 	void AddIngredient(Ingredient* ingredient, int quantityInGrams);
 	virtual ~Recipe();
