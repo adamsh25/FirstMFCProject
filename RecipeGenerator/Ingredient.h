@@ -12,8 +12,8 @@ public:
 	virtual CString GetName() const;
 	virtual CString GetCategory() const { return CString(L""); };
 	virtual CString GetImagePath() const { return CString(L""); };
-	virtual int GetQuantityInGrams() const { return 0; };
-	virtual void SetQuantityInGrams(int quantityInGrams) {};
+	virtual int GetQuantityInGrams() const { return quantityInGrams; };
+	virtual void SetQuantityInGrams(int _quantityInGrams) { quantityInGrams = _quantityInGrams; };
 	virtual double GetTotalCalories() const;
 	virtual double GetCaloriesFor100Gram() const { return 0; };
 	virtual int GetHealthScore() const;

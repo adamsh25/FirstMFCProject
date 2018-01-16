@@ -9,6 +9,7 @@ class Recipe : public CObject
 {
 public:
 	Recipe();
+	Recipe::Recipe(CString _name);
 	Recipe(Recipe const& other);
 	virtual Recipe* clone() const;
 	CString GetName() const;
@@ -20,11 +21,14 @@ public:
 	void SetRecipeInstructionText(CString _recipeText);
 	bool MatchRecipe(vector<Ingredient*> _ingredients);
 	CString GetRecipeText();
+	void AddIngredient(Ingredient* ingredient, int quantityInGrams);
 	virtual ~Recipe();
 
 protected:
-	CString name;
-	CString imagePath;
-	CString recipeText;
+	CString name = L"";
+	CString imagePath = L"";
+	CString recipeText = L"";
+	int healthScore = 0;
+	int calories = 0;
 	vector<Ingredient*> ingredients;
 };

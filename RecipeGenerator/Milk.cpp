@@ -13,9 +13,10 @@ Milk::Milk(Milk const& other) : Dairy(other)
 	kind = other.kind;
 }
 
-Milk::Milk(int _fatPercentage)
+Milk::Milk(int _fatPercentage, CString _kind)
 {
 	name = "Milk";
+	kind = _kind;
 	fatPercentage = _fatPercentage;
 }
 
@@ -41,16 +42,6 @@ CString Milk::GetImagePath() const
 	return CString(L"Milk.png");
 }
 
-int Milk::GetQuantityInGrams() const
-{
-	return quantityInGrams;
-}
-
-void Milk::SetQuantityInGrams(int quantityInGrams)
-{
-	Ingredient::quantityInGrams = quantityInGrams;
-}
-
 double Milk::GetCaloriesFor100Gram() const
 {
 	return 80.7;
@@ -58,7 +49,7 @@ double Milk::GetCaloriesFor100Gram() const
 
 int Milk::GetHealthScore() const
 {
-	return Dairy::GetHealthScore() + 15;
+	return (Dairy::GetHealthScore() + 15) * quantityInGrams;
 }
 
 void Milk::Serialize(CArchive & archive)

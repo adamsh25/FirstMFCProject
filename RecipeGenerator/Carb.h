@@ -3,15 +3,22 @@
 class Carb : public Ingredient
 {
 public:
+	DECLARE_SERIAL(Carb)
+	Carb();
+	Carb(CString name);
+	Carb(Carb const& other);
 	CString GetCategory() const;
-	virtual bool IsProcessed() const = 0;
-	virtual void SetProcessed(bool isProcessed) const = 0;
-	virtual CString GetName() const = 0;
+	virtual CString GetName() const;
 	virtual CString GetImagePath() const;
-	virtual int GetQuantityInGrams() const = 0;
-	virtual void SetQuantityInGrams(const int quantityInGrams) = 0;
-	virtual double GetCaloriesFor100Gram() = 0;
-	virtual int GetHealthScore();
+	virtual double GetCaloriesFor100Gram() const { return 0; };
+	virtual int GetHealthScore() const;
+	virtual bool IsProcessed() const { return isProcessed; };
+	virtual void SetProcessed(bool _isProcessed) { isProcessed = _isProcessed; };
+	virtual Carb* clone() const { return new Carb(*this); };
+	void Serialize(CArchive& archive);
+	virtual CString GetInfo();
+	virtual ~Carb() {};
+
 protected:
 	bool isProcessed = false;
 
