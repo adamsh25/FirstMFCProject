@@ -22,6 +22,7 @@ public:
 	bool MatchRecipe(const vector<Ingredient*>& _ingredients) const;
 	CString GetRecipeText();
 	void AddIngredient(Ingredient* ingredient, int quantityInGrams);
+	const vector<Ingredient*>& GetIngredients() const;
 	virtual ~Recipe();
 
 protected:

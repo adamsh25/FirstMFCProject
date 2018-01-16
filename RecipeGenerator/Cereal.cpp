@@ -38,7 +38,7 @@ double Cereal::GetCaloriesFor100Gram() const
 CString Cereal::GetName() const
 {
 	CString formmated = L"";
-	formmated.Format(L"%s %s", Carb::GetName(), GetCategory());
+	formmated.Format(L"%s %s",GetCategory(), Carb::GetName());
 	return formmated;
 }
 

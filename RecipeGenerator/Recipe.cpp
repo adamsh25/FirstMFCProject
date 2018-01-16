@@ -87,16 +87,16 @@ bool Recipe::MatchRecipe(const vector<Ingredient*>& _ingredients) const
 
 CString Recipe::GetRecipeText()
 {
-	CString formmated = L"";
+	CString formmated = L"Ingredients:\r\n\r\n";
 
 	vector<Ingredient*>::iterator it;
 	for (it = ingredients.begin(); it != ingredients.end(); ++it)
 	{
 		Ingredient* current = *it;
-		formmated.Format(L"\n%d Grams of %s\n", current->GetQuantityInGrams(), current->GetName());
+		formmated.Format(L"%s -\t%d Grams of %s\r\n", formmated, current->GetQuantityInGrams(), current->GetName());
 	}
 
-	formmated.Format(L"\n\n%s\n\n", this->recipeText);
+	formmated.Format(L"%s\r\n\r\nInstructions:\r\n\r\n%s\r\n\r\n", formmated, this->recipeText);
 	return formmated;
 }
 
@@ -107,6 +107,11 @@ void Recipe::AddIngredient(Ingredient* ingredient, int quantityInGrams)
 	ingredients.push_back(toAdd);
 	calories += toAdd->GetTotalCalories();
 	calories += toAdd->GetHealthScore();
+}
+
+const vector<Ingredient*>& Recipe::GetIngredients() const
+{
+	return ingredients;
 }
 
 Recipe::~Recipe()

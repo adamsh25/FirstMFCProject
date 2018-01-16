@@ -8,13 +8,9 @@ using namespace std;
 
 class UpdateCommand : public Command {
 public:
-	UpdateCommand(CListBox* ingredientsListBox, vector<Ingredient*> &ingredients, Ingredient *ingredient, int quantityToUpdate)
-		: ingredientsListBox(ingredientsListBox), ingredients(ingredients), ingredient(ingredient), quantityToUpdate(quantityToUpdate)
+	UpdateCommand(CListBox* ingredientsListBox, vector<Ingredient*> &ingredients, Ingredient *ingredient, int quantityToUpdate, int location)
+		: ingredientsListBox(ingredientsListBox), ingredients(ingredients), ingredient(ingredient), quantityToUpdate(quantityToUpdate), location(location)
 	{
-		vector<Ingredient*>::iterator it;
-		for (it = ingredients.begin(); it != ingredients.end(); ++it, ++location)
-			if (*it == ingredient)
-				break;
 
 	}
 
@@ -23,9 +19,11 @@ public:
 	{
 		oldQuantity = ingredient->GetQuantityInGrams();
 		ingredient->SetQuantityInGrams(quantityToUpdate);
+
 		ingredientsListBox->DeleteString(location);
 		ingredientsListBox->InsertString(location, ingredient->GetName());
 		ingredientsListBox->SetItemDataPtr(location, ingredient);
+
 		ingredientsListBox->Invalidate();
 	}
 
