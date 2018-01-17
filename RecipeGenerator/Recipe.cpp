@@ -96,7 +96,15 @@ CString Recipe::GetRecipeText()
 	for (it = ingredients.begin(); it != ingredients.end(); ++it)
 	{
 		Ingredient* current = *it;
-		formmated.Format(L"%s -\t%d Grams of %s\r\n", formmated, current->GetQuantityInGrams(), current->GetName());
+		CString toFind = L"";
+		toFind.Format(L"[%d]", current->GetQuantityInGrams());
+		int foundIndex = current->GetName().Find(toFind);
+		
+		CString pretty = L"%s";
+		pretty.Format(pretty, current->GetName());
+		if (foundIndex != -1)
+			pretty.Delete(foundIndex, toFind.GetLength());
+		formmated.Format(L"%s -\t%d Grams of %s\r\n", formmated, current->GetQuantityInGrams(), pretty);
 	}
 
 	formmated.Format(L"%s\r\n\r\nInstructions:\r\n\r\n%s\r\n\r\n", formmated, this->recipeText);
