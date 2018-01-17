@@ -15,7 +15,7 @@ Cereal::Cereal(CString _name)
 
 Cereal::Cereal(Cereal const & other) : Carb(other)
 {
-
+	calories = 666;
 }
 
 
@@ -30,10 +30,6 @@ CString Cereal::GetImagePath() const
 	return CString(L"CerealImage.png");
 }
 
-double Cereal::GetCaloriesFor100Gram() const
-{
-	return 555.0;
-}
 
 CString Cereal::GetName() const
 {

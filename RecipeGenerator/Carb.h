@@ -5,12 +5,11 @@ class Carb : public Ingredient
 public:
 	DECLARE_SERIAL(Carb)
 	Carb();
-	Carb(CString name);
+	Carb(CString name, int calories);
 	Carb(Carb const& other);
 	CString GetCategory() const;
 	virtual CString GetName() const;
 	virtual CString GetImagePath() const;
-	virtual double GetCaloriesFor100Gram() const { return 0; };
 	virtual int GetHealthScore() const;
 	virtual bool IsProcessed() const { return isProcessed; };
 	virtual void SetProcessed(bool _isProcessed) { isProcessed = _isProcessed; };

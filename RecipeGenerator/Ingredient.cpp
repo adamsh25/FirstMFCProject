@@ -12,6 +12,7 @@ Ingredient::Ingredient(Ingredient const & other)
 	name = other.name;
 	imagePath = other.imagePath;
 	quantityInGrams = other.quantityInGrams;
+	calories = other.calories;
 }
 
 void Ingredient::Serialize(CArchive& archive) {

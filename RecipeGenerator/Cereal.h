@@ -10,7 +10,6 @@ public:
 	CString GetCategory() const;
 	virtual CString GetName() const;
 	CString GetImagePath() const;
-	double GetCaloriesFor100Gram() const;
 	int GetHealthScore() const;
 	Cereal* clone() const { return new Cereal(*this); };
 	void Serialize(CArchive& archive);

@@ -10,9 +10,10 @@ Carb::Carb()
 {
 }
 
-Carb::Carb(CString _name)
+Carb::Carb(CString _name, int _calories=800)
 {
 	name = _name;
+	calories = _calories;
 }
 
 Carb::Carb(Carb const & other) : Ingredient(other)

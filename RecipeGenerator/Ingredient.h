@@ -15,7 +15,7 @@ public:
 	virtual int GetQuantityInGrams() const { return quantityInGrams; };
 	virtual void SetQuantityInGrams(int _quantityInGrams) { quantityInGrams = _quantityInGrams; };
 	virtual double GetTotalCalories() const;
-	virtual double GetCaloriesFor100Gram() const { return 0; };
+	virtual double GetCaloriesFor100Gram() const { return calories; };
 	virtual int GetHealthScore() const;
 	virtual CString GetInfo();
 	void Serialize(CArchive& archive);
@@ -25,4 +25,5 @@ protected:
 	CString name;
 	CString imagePath;
 	int quantityInGrams = 0;
+	int calories = 0;
 };

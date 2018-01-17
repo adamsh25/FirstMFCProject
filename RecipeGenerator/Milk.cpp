@@ -5,7 +5,7 @@ IMPLEMENT_SERIAL(Milk, Dairy, 1)
 
 Milk::Milk()
 {
-
+	calories = 80;
 }
 
 Milk::Milk(Milk const& other) : Dairy(other)
@@ -42,14 +42,10 @@ CString Milk::GetImagePath() const
 	return CString(L"Milk.png");
 }
 
-double Milk::GetCaloriesFor100Gram() const
-{
-	return 80.7;
-}
 
 int Milk::GetHealthScore() const
 {
-	return (Dairy::GetHealthScore() + 15) * quantityInGrams;
+	return ((Dairy::GetHealthScore() + 15) * quantityInGrams)/100;
 }
 
 void Milk::Serialize(CArchive & archive)

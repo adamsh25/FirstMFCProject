@@ -13,8 +13,6 @@ public:
 	CString GetCategory() const;
 	CString GetName() const;
 	CString GetImagePath() const;
-
-	double GetCaloriesFor100Gram() const;
 	int GetHealthScore() const;
 	void Serialize(CArchive& archive);
 	virtual CString GetInfo();

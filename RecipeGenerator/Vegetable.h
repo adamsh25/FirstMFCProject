@@ -10,7 +10,6 @@ public:
 	CString GetCategory() const;
 	virtual CString GetName() const;
 	virtual CString GetImagePath() const;
-	virtual double GetCaloriesFor100Gram() const { return 0; };
 	virtual int GetHealthScore() const;
 	virtual Vegetable* clone() const { return new Vegetable(*this); };
 	void Serialize(CArchive& archive);
