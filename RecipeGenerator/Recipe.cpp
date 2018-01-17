@@ -3,9 +3,10 @@
 
 Recipe::Recipe()
 {
+
 }
 
-Recipe::Recipe(CString _name)
+Recipe::Recipe(CString _name):Recipe()
 {
 	name = _name;
 }
@@ -21,6 +22,8 @@ Recipe::Recipe(Recipe const & other)
 	{
 		Ingredient* current = (*it)->clone();
 		ingredients.push_back(current);
+		healthScore += current->GetHealthScore();
+		calories += current->GetTotalCalories();
 	}
 }
 
@@ -97,6 +100,7 @@ CString Recipe::GetRecipeText()
 	}
 
 	formmated.Format(L"%s\r\n\r\nInstructions:\r\n\r\n%s\r\n\r\n", formmated, this->recipeText);
+	formmated.Format(L"%s\r\n\r\nHealth:\r\n\tCalories:\t %0.0f\r\n\tHealth Score:\t%d\r\n\r\n\r\n\r\n", formmated, this->GetTotalCalories(), this->GetHealthScore());
 	return formmated;
 }
 
@@ -106,7 +110,7 @@ void Recipe::AddIngredient(Ingredient* ingredient, int quantityInGrams)
 	toAdd->SetQuantityInGrams(quantityInGrams);
 	ingredients.push_back(toAdd);
 	calories += toAdd->GetTotalCalories();
-	calories += toAdd->GetHealthScore();
+	healthScore += toAdd->GetHealthScore();
 }
 
 const vector<Ingredient*>& Recipe::GetIngredients() const

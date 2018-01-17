@@ -65,6 +65,6 @@ void Vegetable::Serialize(CArchive & archive)
 CString Vegetable::GetInfo()
 {
 	CString formmated = L"";
-	formmated.Format(L"Dairy_%d_%s", color, Ingredient::GetInfo());
+	formmated.Format(L"%s_%s_%s", GetCategory(), color, Ingredient::GetInfo());
 	return formmated;
 }
